@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
         <div className="h-full px-5 py-4">
           <button className="space-y-2 font-medium w-full">
             <Link
-              href="/download"
+              href="/invoice"
               className="flex items-center p-2 text-zinc-800 rounded-lg dark:text-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-700 group"
             >
               <IoIosCloudDownload className="w-5 h-5 text-zinc-800 transition duration-75 dark:text-zinc-50 group-hover:text-zinc-900 dark:group-hover:text-zinc-50" />
