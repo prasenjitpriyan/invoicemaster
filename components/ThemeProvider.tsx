@@ -12,7 +12,7 @@ const ThemeProvider = ({
   const mode = useSelector((state: RootState) => state.theme.mode);
   return (
     <div className={mode}>
-      <div className="bg-zinc-100 text-gray-700 dark:text-zinc-100 dark:bg-zinc-400 min-h-screen">
+      <div className="bg-zinc-50 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-50 min-h-screen">
         {children}
       </div>
     </div>
