@@ -3,7 +3,7 @@ import React from "react";
 
 const Home: React.FC = () => {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Hero />
     </main>
   );
