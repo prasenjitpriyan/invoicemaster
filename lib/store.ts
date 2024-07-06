@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { themeReducer } from "./features/Theme/ThemeSlice";
-import invoiceReducer from "@/lib/Invoice/InvoiceSlice";
+import invoiceReducer from "@/lib/features/Invoice/InvoiceSlice";
 
 const persistConfig = {
   key: "root",
