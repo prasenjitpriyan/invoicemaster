@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import logo from "@/assets/images/10.svg";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "@/lib/store";
 
 const InvoicePage = () => {
+  const invoices = useSelector((state: RootState) => state.invoices);
   return (
     <main className="grid place-items-center min-h-screen w-screen">
       <div className="h-[96%] w-[96%] border-t-8 border-blue-600">

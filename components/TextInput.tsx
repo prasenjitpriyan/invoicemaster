@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ChangeEvent } from "react";
 
 interface TextInputProps {
   htmlFor: string;

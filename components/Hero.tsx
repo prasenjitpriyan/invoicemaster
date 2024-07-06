@@ -1,9 +1,11 @@
-import Link from "next/link";
+"use client";
+
 import React from "react";
+import Link from "next/link";
 import { IoIosCloudDownload } from "react-icons/io";
 import { FaCloudUploadAlt } from "react-icons/fa";
-import TextInput from "./TextInput";
 import DatePickerCoponents from "./DatePicker";
+import TextInput from "./TextInput";
 
 const Hero: React.FC = () => {
   return (
@@ -43,10 +45,10 @@ const Hero: React.FC = () => {
               <div className="flex flex-col justify-between h-48 w-48">
                 <h1 className="font-bold text-[2.90rem]">INVOICE</h1>
                 <TextInput
-                  htmlFor="invoice"
-                  labelText="Invoice number"
-                  type="number"
-                  placeholder="#"
+                  htmlFor="from"
+                  labelText="Who is this from?"
+                  type="text"
+                  placeholder="Who is this from?"
                   className="w-full"
                 />
               </div>
