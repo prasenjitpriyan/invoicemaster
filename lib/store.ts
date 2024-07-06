@@ -1,15 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import axios from "axios";
-import {
-  FLUSH,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-  REHYDRATE,
-  persistReducer,
-  persistStore,
-} from "redux-persist";
+import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { themeReducer } from "./features/Theme/ThemeSlice";
 
@@ -19,27 +9,28 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  theme: themeReducer,
+  user: themeReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const makeConfiguredStore = () =>
+  configureStore({
+    reducer: rootReducer,
+  });
 
-export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-      thunk: {
-        extraArgument: {
-          client: axios,
-        },
-      },
-    }),
-});
+export const makeStore = () => {
+  const isServer = typeof window === "undefined";
+  if (isServer) {
+    return makeConfiguredStore();
+  } else {
+    const persistedReducer = persistReducer(persistConfig, rootReducer);
+    let store: any = configureStore({
+      reducer: persistedReducer,
+    });
+    store.__persistor = persistStore(store);
+    return store;
+  }
+};
 
-export const persistor = persistStore(store);
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
