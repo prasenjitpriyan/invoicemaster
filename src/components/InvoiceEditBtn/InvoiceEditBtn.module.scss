@@ -1,0 +1,30 @@
+:global {
+  body[data-theme='dark'] {
+    --invoiceEditBtnBG: #252945;
+    --invoiceEditBtnText: #dfe3fa;
+    --invoiceEditBtnBGHover: #ffffff;
+  }
+  body[data-theme='light'] {
+    --invoiceEditBtnBG: #f9fafe;
+    --invoiceEditBtnBGHover: #dfe3fa;
+    --invoiceEditBtnText: #7e88c3;
+  }
+}
+
+.invoiceEditBtn {
+  @include headingSVariant;
+  width: 73px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: var(--invoiceEditBtnBG);
+  color: var(--invoiceEditBtnText);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: var(--invoiceEditBtnBGHover);
+    color: #7e88c3;
+  }
+}

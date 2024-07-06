@@ -1,0 +1,14 @@
+.page404 {
+  height: 100dvh;
+  @include pc_display {
+    display: grid;
+    grid-template-columns: 103px 1fr;
+    grid-template-rows: 1fr;
+  }
+  .header {
+    @include pc_display {
+      grid-column: 1 / 2;
+      grid-row: 1;
+    }
+  }
+}

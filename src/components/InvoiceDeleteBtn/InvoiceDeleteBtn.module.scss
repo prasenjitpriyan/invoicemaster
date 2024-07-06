@@ -1,0 +1,17 @@
+.invoiceDeleteBtn {
+  @include headingSVariant;
+  width: 89px;
+  height: 48px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  background-color: #ec5757;
+  color: #fff;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: #ff9797;
+    color: #fff;
+  }
+}

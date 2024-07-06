@@ -1,0 +1,51 @@
+:global {
+  body[data-theme='dark'] {
+    --invoiceFormFieldBorderColor: #252945;
+    --invoiceFormFieldBGColor: #1e2139;
+  }
+  body[data-theme='light'] {
+    --invoiceFormFieldBorderColor: #dfe3fa;
+    --invoiceFormFieldBGColor: #ffffff;
+  }
+}
+
+.invoiceFormInputField {
+  display: flex;
+  flex-direction: column;
+  &__fieldCaption {
+    @include body;
+    line-height: 1.15;
+    letter-spacing: -0.1px;
+    color: var(--secondaryGrayDetailsColor);
+    margin-bottom: 9px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__inputField {
+    @include headingSVariant;
+    width: 100%;
+    border: solid 1px var(--invoiceFormFieldBorderColor);
+    border-radius: 4px;
+    padding: 18px 0 18px 20px;
+    color: var(--linkBackColor);
+    background-color: var(--invoiceFormFieldBGColor);
+    &:active,
+    &:focus
+    {
+      border: 1px solid #9277ff;
+    }
+  }
+  &__fieldError {
+    border: 1px solid #ec5757;
+  }
+  &__error {
+    @include headingSVariant;
+    font-size: 11px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -0.21px;
+    color: #ec5757;
+  }
+}

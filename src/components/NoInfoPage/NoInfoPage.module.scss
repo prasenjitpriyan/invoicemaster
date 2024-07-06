@@ -1,0 +1,56 @@
+:global {
+  body[data-theme='dark'] {
+    --noInfoPageHeadingColor: #fff;
+    --noInfoPageTextColor: #dfe3fa;
+  }
+  body[data-theme='light'] {
+    --noInfoPageHeadingColor: $deepBlack;
+    --noInfoPageTextColor: #888eb0;
+  }
+}
+
+.noInfoPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__image {
+    margin: 0 auto;
+    max-width: 206px;
+    @include tablet_display {
+      max-width: 240px;
+    }
+  }
+  &__heading {
+    @include headingM;
+    color: var(--noInfoPageHeadingColor);
+    margin-top: 42px;
+    font-weight: 600;
+  }
+  &__text {
+    @include bodyVariant;
+    color: var(--noInfoPageTextColor);
+    margin-top: 23px;
+    text-align: center;
+    line-height: 1.15;
+    letter-spacing: -0.1px;
+  }
+  &__link {
+    @include bodyVariant;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 44px;
+    text-decoration: none;
+    background-color: #7c5dfa;
+    color: #fff;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: #9277ff;
+    }
+  }
+}

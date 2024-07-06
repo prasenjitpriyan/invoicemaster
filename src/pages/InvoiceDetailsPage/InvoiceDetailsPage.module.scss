@@ -1,0 +1,280 @@
+:global {
+  body[data-theme='dark'] {
+    --linkBackColor: #ffffff;
+    --InvDetBGColor: rgba(72, 84, 159, 0.1);
+    --secondaryGrayDetailsColor: #dfe3fa;
+    --invDetTotalColor: #000;
+    --InvDetBGColorSec: rgba(72, 84, 159, 0.1);
+  }
+  body[data-theme='light'] {
+    --linkBackColor: #0c0e16;
+    --InvDetBGColor: #ffffff;
+    --secondaryGrayDetailsColor: #7e88c3;
+    --invDetTotalColor: #373b53;
+    --InvDetBGColorSec: #f9fafe;
+  }
+}
+
+.invoiceDetailsPage {
+  height: 100dvh;
+  @include pc_display {
+    display: grid;
+    grid-template-columns: 103px 1fr;
+    grid-template-rows: 1fr;
+  }
+  &__backLinks {
+    margin-top: 33px;
+  }
+  &__backLink {
+    @include headingSVariant;
+    line-height: normal;
+    color: var(--linkBackColor);
+    max-width: 80px;
+    min-height: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__image {
+      min-height: 9px;
+    }
+  }
+  &__headingBar {
+    margin-top: 31px;
+  }
+  &__infoBlock {
+    margin-top: 16px;
+    background-color: var(--InvDetBGColor);
+    border-radius: 8px;
+    box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+    padding: 25px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: scroll;
+    @include tablet_display {
+      grid-template-columns: repeat(4, 1fr);
+      padding: 33px 32px;
+    }
+    grid-template-rows: auto;
+    &__heading {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      &__id {
+        @include headingSVariant;
+        line-height: normal;
+        margin-bottom: 4px;
+        color: var(--linkBackColor);
+      }
+      &__desc {
+        @include bodyVariant;
+        line-height: normal;
+        color: var(--secondaryGrayDetailsColor);
+      }
+    }
+    &__address {
+      @include body;
+      line-height: 1.38;
+      grid-row: 2/3;
+      grid-column: 1/2;
+      @include tablet_display {
+        grid-column: 4/5;
+        grid-row: 1/2;
+        margin-top: 0;
+        margin-bottom: 21px;
+        justify-self: end;
+      }
+      color: var(--secondaryGrayDetailsColor);
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    &__dates {
+      margin-top: 31px;
+      grid-row: 3/5;
+      grid-column: 1/2;
+      @include tablet_display {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        margin-top: 0;
+      }
+      &__payment {
+        margin-bottom: 31px;
+        display: flex;
+        flex-direction: column;
+      }
+      &__label {
+        @include bodyVariant;
+        line-height: normal;
+        color: var(--secondaryGrayDetailsColor);
+        margin-bottom: 4px;
+      }
+      &__value {
+        @include headingS;
+        line-height: 1.33;
+        color: var(--linkBackColor);
+        letter-spacing: -0.25px;
+        margin-top: 13px;
+      }
+    }
+    &__receiver {
+      display: flex;
+      flex-direction: column;
+      margin-top: 31px;
+      grid-column: 2/3;
+      grid-row: 3/5;
+      @include tablet_display {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        margin-top: 0;
+        justify-self: center;
+      }
+      &__label {
+        @include bodyVariant;
+        line-height: normal;
+        color: var(--secondaryGrayDetailsColor);
+        margin-bottom: 13px;
+      }
+      &__value {
+        @include headingS;
+        line-height: 1.33;
+        letter-spacing: -0.25px;
+        color: var(--linkBackColor);
+      }
+      &__data {
+        @include bodyVariant;
+        line-height: 1.38;
+        letter-spacing: -0.1px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 7px;
+        color: var(--secondaryGrayDetailsColor);
+      }
+    }
+    &__sentToEmail {
+      grid-column: 1/2;
+      grid-row: 5/6;
+      display: flex;
+      flex-direction: column;
+      @include tablet_display {
+        grid-column: 3/4;
+        grid-row: 2/3;
+        justify-self: end;
+      }
+      &__label {
+        @include bodyVariant;
+        line-height: normal;
+        color: var(--secondaryGrayDetailsColor);
+        margin-bottom: 13px;
+      }
+      &__value {
+        @include headingS;
+        line-height: 1.33;
+        letter-spacing: -0.25px;
+        color: var(--linkBackColor);
+      }
+    }
+    &__invoiceItems {
+      grid-column: 1 / end;
+      background-color: var(--InvDetBGColorSec);
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      padding: 25px 24px 23px;
+      margin-top: 38px;
+      @include tablet_display {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      &__label {
+        @include bodyVariant;
+        color: var(--secondaryGrayDetailsColor);
+        display: none;
+        &:first-child {
+          @include tablet_display {
+            justify-self: start;
+          }
+        }
+        @include tablet_display {
+          display: block;
+          justify-self: end;
+          margin-bottom: 32px;
+        }
+      }
+      &__line {
+        &:not(:last-child) {
+          margin-bottom: 24px;
+        }
+        @include tablet_display {
+          grid-column: 1 / end;
+        }
+      }
+      @include tablet_display {
+        grid-column: 1 / end;
+        grid-row: 3/4;
+        padding: 33px 32px 30px;
+        margin-top: 24px;
+      }
+      &__grandTotal {
+        grid-column: 1 / end;
+        @include tablet_display {
+          grid-column: 1 / end;
+          grid-row: 4/5;
+        }
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        min-height: 80px;
+        background-color: var(--invDetTotalColor);
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        &__label {
+          @include bodyVariant;
+          line-height: normal;
+          letter-spacing: -0.25px;
+          color: #fff;
+        }
+        &__value {
+          @include headingS;
+          line-height: 1.33;
+          letter-spacing: -0.5px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  &__footer {
+    margin-top: 56px;
+    min-height: 91px;
+    background-color: var(--InvDetBGColor);
+    display: flex;
+    align-items: center;
+    &__buttons {
+      display: flex;
+    }
+    &__button {
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+    @include tablet_display {
+      display: none;
+    }
+  }
+}
+
+.header {
+  @include pc_display {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    position: relative;
+    z-index: 8;
+  }
+}
+
+.hash {
+  color: var(--secondaryGrayDetailsColor);
+}
+
+

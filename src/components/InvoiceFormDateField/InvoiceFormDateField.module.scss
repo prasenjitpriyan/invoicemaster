@@ -1,0 +1,60 @@
+:global {
+  body[data-theme='dark'] {
+    --invoiceFormDateBorderColor: #252945;
+    --invoiceFormDateBGColor: #1e2139;
+  }
+  body[data-theme='light'] {
+    --invoiceFormDateBorderColor: #dfe3fa;
+    --invoiceFormDateBGColor: #ffffff;
+  }
+}
+
+.invoiceFormDateField {
+  display: flex;
+  flex-direction: column;
+  &__fieldCaption {
+    @include body;
+    line-height: 1.15;
+    letter-spacing: -0.1px;
+    color: var(--secondaryGrayDetailsColor);
+    margin-bottom: 9px;
+  }
+  &__inputField {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    @include headingSVariant;
+    border: solid 1px var(--invoiceFormFieldBorderColor);
+    border-radius: 4px;
+    padding: 18px 0 18px 20px;
+    color: var(--linkBackColor);
+    background-color: var(--invoiceFormFieldBGColor);
+    &:active,
+    &:focus
+    {
+      border: 1px solid #9277ff;
+    }
+    &::after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 18px;
+      background-image: url("src/assets/icon-calendar.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  &__dateModal {
+    box-shadow: 0 10px 20px 0 rgba(72, 84, 159, 0.25);
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    & * > div {
+      background-color: var(--invoiceFormDateBGColor);
+      color: var(--linkBackColor);
+    }
+  }
+}

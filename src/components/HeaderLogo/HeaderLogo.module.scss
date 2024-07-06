@@ -1,0 +1,9 @@
+.headerLogo {
+  z-index: 2;
+  &__image {
+    @include pc_display {
+      height: 40px;
+      width: 40px;
+    }
+  }
+}

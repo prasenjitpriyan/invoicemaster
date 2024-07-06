@@ -1,0 +1,96 @@
+:global {
+  body[data-theme='dark'] {
+    --statusBarBGColor: rgba(72, 84, 159, 0.1);
+    --statusBarLabelColor: #dfe3fa;
+  }
+  body[data-theme='light'] {
+    --statusBarBGColor: #ffffff;
+    --statusBarLabelColor: #858bb2;
+  }
+}
+
+.detailsStatusBar {
+  min-height: 91px;
+  padding: 0 27px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+  background-color: var(--statusBarBGColor);
+  @include tablet_display {
+    display: grid;
+    grid-template-columns: 55px 104px 1fr;
+  }
+  &__label {
+    @include bodyVariant;
+    color: var(--statusBarLabelColor);
+    @include tablet_display {
+      justify-self: start;
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+  }
+  &__status {
+    @include headingSVariant;
+    line-height: normal;
+    width: 104px;
+    height: 40px;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    @include tablet_display {
+      grid-column: 2/3;
+      grid-row: 1/2;
+    }
+    &--paid {
+      background-color: rgba(51, 215, 160, 0.06);
+      color: #33d69f;
+      border-radius: 6px;
+    }
+    &--pending {
+      background-color: rgba(255, 143, 0, 0.06);
+      color: #ff8f00;
+      border-radius: 6px;
+    }
+    &--draft {
+      color: #373b53;
+      border-radius: 6px;
+      background-color: rgba(55, 59, 83, 0.06);
+    }
+    @include tablet_display {
+      justify-self: unset;
+    }
+    &__indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+      &--paid {
+        background-color: #33d69f;
+      }
+      &--pending {
+        background-color: #ff8f00;
+      }
+      &--draft {
+        background-color: #373b53;
+      }
+    }
+  }
+  &__buttons {
+    display: none;
+    @include tablet_display {
+      display: flex;
+      justify-content: flex-end;
+      grid-column: 3/4;
+      grid-row: 1/2;
+    }
+  }
+  &__button {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}

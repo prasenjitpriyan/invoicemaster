@@ -1,0 +1,28 @@
+:global {
+  body[data-theme='dark'] {
+    --textColor: #fff;
+    --subTextColor: #dfe3fa;
+  }
+  body[data-theme='light'] {
+    --textColor: $deepBlack;
+    --subTextColor: $lightGrey;
+  }
+}
+
+.PageControlsTextInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__title {
+    @include headingM;
+    color: var(--textColor);
+    @include tablet_display {
+      @include headingL;
+      color: var(--textColor);
+    }
+  }
+  &__qty {
+    @include bodyVariant;
+    color: var(--subTextColor);
+  }
+}

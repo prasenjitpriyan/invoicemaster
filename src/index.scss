@@ -1,0 +1,13 @@
+@import 'the-new-css-reset';
+
+body {
+  font-family: $font;
+}
+body[data-theme='dark'] {
+  background-color: $deepestBlack;
+  --mainTextColor: #fff;
+}
+body[data-theme='light'] {
+  background-color: $lightBG;
+  --mainTextColor: $deepBlack;
+}

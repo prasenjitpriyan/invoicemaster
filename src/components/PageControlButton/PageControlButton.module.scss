@@ -1,0 +1,27 @@
+.pageControlButton {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 24px;
+  background-color: $darkViolet;
+  transition: background-color 0.3s;
+  &__icon {
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  &:hover {
+    background-color: $lightViolet;
+  }
+  &:active {
+    background-color: $lightViolet;
+  }
+}

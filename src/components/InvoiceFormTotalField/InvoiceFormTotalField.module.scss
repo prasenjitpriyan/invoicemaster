@@ -1,0 +1,18 @@
+.invoiceFormTotalField {
+  display: flex;
+  flex-direction: column;
+  &__fieldCaption {
+    @include body;
+    line-height: 1.15;
+    letter-spacing: -0.1px;
+    color: var(--secondaryGrayDetailsColor);
+    margin-bottom: 9px;
+  }
+  &__inputField {
+    @include headingSVariant;
+    width: 100%;
+    padding: 18px 0 18px 0px;
+    color: var(--secondaryGrayDetailsColor);
+    background-color: transparent;
+  }
+}

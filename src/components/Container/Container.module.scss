@@ -1,0 +1,11 @@
+.container {
+  max-width: 347px;
+  padding: 0 10px;
+  margin: 0 auto;
+  @include tablet_display {
+    max-width: 692px;
+  }
+  @include pc_display {
+    max-width: 750px;
+  }
+}

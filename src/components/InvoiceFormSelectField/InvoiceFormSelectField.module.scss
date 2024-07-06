@@ -1,0 +1,67 @@
+:global {
+  body[data-theme='dark'] {
+    --invoiceFormSelectBorderColor: #252945;
+    --invoiceFormSelectBGColor: #1e2139;
+  }
+  body[data-theme='light'] {
+    --invoiceFormSelectBorderColor: #dfe3fa;
+    --invoiceFormSelectBGColor: #ffffff;
+  }
+}
+
+.invoiceFormSelectField {
+  display: flex;
+  flex-direction: column;
+
+  &__fieldCaption {
+    @include body;
+    line-height: 1.15;
+    letter-spacing: -0.1px;
+    color: var(--secondaryGrayDetailsColor);
+    margin-bottom: 9px;
+  }
+
+  &__inputField {
+    outline: none;
+    border: none;
+    color: var(--linkBackColor);
+    &:hover {
+      outline: none;
+      border: none;
+    }
+    & [class$="-control"] {
+      max-height: 53px;
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      @include headingSVariant;
+      border: solid 1px var(--invoiceFormSelectBorderColor);
+      border-radius: 4px;
+      padding: 10px 10px;
+      color: var(--linkBackColor);
+      background-color: var(--invoiceFormSelectBGColor);
+      outline: none;
+    }
+    & [class$="-singleValue"] {
+      color: unset;
+    }
+    & [class$="-indicatorSeparator"] {
+      display: none;
+    }
+    & [class$="-menu"] {
+      @include headingSVariant;
+      border-radius: 4px;
+      color: var(--linkBackColor);
+      background-color: var(--invoiceFormSelectBGColor);
+      outline: none;
+    }
+    & [class$="-option"] {
+      @include headingSVariant;
+      color: var(--linkBackColor);
+      background-color: var(--invoiceFormSelectBGColor);
+      &:hover {
+        background-color: #9277ff;
+      }
+    }
+  }
+}

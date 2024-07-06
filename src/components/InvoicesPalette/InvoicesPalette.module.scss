@@ -1,0 +1,7 @@
+.invoicesPalette {
+  &__invoice {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+}

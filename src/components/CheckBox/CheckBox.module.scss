@@ -1,0 +1,23 @@
+.checkBox {
+  font-family: $font;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  &__input {
+    width: 16px;
+    height: 16px;
+    border: solid 1px $darkViolet;
+    padding: 5px;
+    background-color: $purpleLight;
+    margin-right: 13px;
+    &:checked {
+      background-color: $darkViolet;
+      background-image: url('../../assets/icon-check.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+}

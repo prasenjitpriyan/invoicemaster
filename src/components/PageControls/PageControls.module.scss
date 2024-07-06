@@ -1,0 +1,30 @@
+.pageControls {
+  display: grid;
+  min-height: 44px;
+  grid-template-columns: 1fr 1fr 90px;
+  @include tablet_display {
+    grid-template-columns: 1fr 1fr 150px;
+  }
+  align-items: center;
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__title {
+    @include headingM;
+    color: var(--textColor);
+    @include tablet_display {
+      @include headingL;
+      color: var(--textColor);
+    }
+  }
+  &__qty {
+    @include bodyVariant;
+    color: var(--subTextColor);
+  }
+  &__select {
+    justify-self: end;
+    margin-right: 18px;
+  }
+}

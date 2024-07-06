@@ -1,0 +1,80 @@
+.invoiceItemLine {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @include tablet_display {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  &__paramsMobile {
+    display: flex;
+    @include headingS;
+    max-width: 75%;
+    justify-content: space-between;
+    width: 100%;
+    line-height: 1;
+    color: var(--secondaryGrayDetailsColor);
+    @include tablet_display {
+      display: none;
+    }
+  }
+  &__name {
+    @include headingS;
+    line-height: 1;
+    letter-spacing: -0.25px;
+    margin-bottom: 8px;
+    color: var(--linkBackColor);
+    @include tablet_display {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+  }
+  &__qty {
+    display: none;
+    @include tablet_display {
+      display: block;
+      line-height: 1;
+      letter-spacing: -0.25px;
+      color: var(--secondaryGrayDetailsColor);
+      grid-column: 2/3;
+      grid-row: 1/2;
+      justify-self: end;
+      margin-right: 10px;
+    }
+  }
+  &__mark {
+    display: none;
+    color: var(--secondaryGrayDetailsColor);
+    grid-column: 1/2;
+    grid-row: 2/3;
+    @include tablet_display {
+      display: none;
+    }
+  }
+  &__price {
+    display: none;
+    @include tablet_display {
+      display: block;
+      line-height: 1;
+      letter-spacing: -0.25px;
+      color: var(--secondaryGrayDetailsColor);
+      grid-column: 3/4;
+      grid-row: 1/2;
+      justify-self: end;
+    }
+  }
+
+  &__total {
+    @include headingS;
+    line-height: normal;
+    letter-spacing: -0.25px;
+    color: var(--linkBackColor);
+    grid-column: 2/3;
+    grid-row: 1 / end;
+    justify-self: end;
+    align-self: last baseline;
+    @include tablet_display {
+      grid-column: 4/5;
+      grid-row: 1/3;
+    }
+  }
+}

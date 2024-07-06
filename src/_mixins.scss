@@ -1,0 +1,89 @@
+@mixin hover {
+  @media (any-hover: hover) {
+    @content;
+  }
+}
+
+@mixin pc_display {
+  @media (width >= 1440px) {
+    @content;
+  }
+}
+
+@mixin tablet_display {
+  @media (width >= 768px) {
+    @content;
+  }
+}
+
+$darkViolet: #7c5dfa;
+$lightViolet: #9277ff;
+$midDark: #1e2139;
+$darkGrey: #252945;
+$purpleLight: #dfe3fa;
+$lightGrey: #888eb0;
+$midPurple: #7e88c3;
+$deepBlack: #0c0e16;
+$deepestBlack: #141625;
+$brandRed: #ec5757;
+$lightRed: #9277ff;
+$lightBG: #f8f8fb;
+$font: 'League Spartan', 'sans-serif';
+
+@mixin headingL {
+  font-family: $font;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -1.13px;
+  color: $deepBlack;
+  text-align: left;
+}
+
+@mixin headingM {
+  font-family: $font;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.75px;
+  color: $deepBlack;
+  text-align: left;
+}
+
+@mixin headingS {
+  font-family: $font;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.25px;
+  color: $deepBlack;
+  line-height: 1.6;
+  text-align: left;
+}
+
+@mixin headingSVariant {
+  font-family: $font;
+  font-size: 15px;
+  font-weight: 600;
+  color: $deepBlack;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  text-align: left;
+}
+
+@mixin body {
+  font-family: $font;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.38;
+  letter-spacing: -0.1px;
+  color: $deepBlack;
+  text-align: left;
+}
+
+@mixin bodyVariant {
+  font-family: $font;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.1px;
+  color: $deepBlack;
+  text-align: left;
+}
