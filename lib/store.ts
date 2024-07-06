@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { themeReducer } from "./features/Theme/ThemeSlice";
+import invoiceReducer from "@/lib/Invoice/InvoiceSlice";
 
 const persistConfig = {
   key: "root",
@@ -10,11 +11,13 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: themeReducer,
+  invoice: invoiceReducer,
 });
 
 const makeConfiguredStore = () =>
   configureStore({
     reducer: rootReducer,
+    devTools: process.env.NEXT_PUBLIC_BASE_URL !== "production",
   });
 
 export const makeStore = () => {
